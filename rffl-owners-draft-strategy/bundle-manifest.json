@@ -1,0 +1,134 @@
+{
+  "name": "rffl-owners-draft-strategy",
+  "version": "0.1.0",
+  "created_at": "2026-08-26T18:00:00-05:00",
+  "purpose": "Claude Code skill bundle for researching, creating, updating, versioning, and rendering RFFL Owner draft cheat sheets.",
+  "entrypoint": "SKILL.md",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 500,
+      "sha256": "59b07dbd87619cab4a4fab32e672b8158c9aab2d3eff86be99816d5f70afd99c"
+    },
+    {
+      "path": "CLAUDE-CODE-HANDOFF.md",
+      "bytes": 1482,
+      "sha256": "9427bdcdee040c80918a902a1966f1f29aaa438e96dfef5f216ea09eb9ffb4b0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3649,
+      "sha256": "45698ec29d64c6f122aa6bff76f699bcc9409f12f59007af6910db2ed163687a"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 8877,
+      "sha256": "bfd1bad54ceb57a2ff783e6520e9578ee53b8176f4bb42ce80b637ddbfb6a627"
+    },
+    {
+      "path": "assets/RFFL-general-tiered-cheat-sheet-template-v2.pdf",
+      "bytes": 25087,
+      "sha256": "fe0243a0dbe52be2a989e84874b65208617bcc652918527eca27363a07312a5d"
+    },
+    {
+      "path": "assets/rffl-brand-tokens.json",
+      "bytes": 833,
+      "sha256": "26f25de06a73d26083250869810a0a54ac171ec1c211d53561e7a640b14aff64"
+    },
+    {
+      "path": "examples/blank-cheat-sheet.json",
+      "bytes": 2809,
+      "sha256": "f6eb022e39d62484ee0ecf56e43ac29c4936152244c88ed99a7514ddd22304b1"
+    },
+    {
+      "path": "examples/sample-cheat-sheet.json",
+      "bytes": 311344,
+      "sha256": "d849cec55104a63ce64de0077c58537bb4502015893f643ea079f293baa7e87f"
+    },
+    {
+      "path": "examples/sample-output.manifest.json",
+      "bytes": 923,
+      "sha256": "c88e43a650317a7d21fa2c73275ce66d2334d9654f063791577bf985e126375c"
+    },
+    {
+      "path": "examples/sample-output.pdf",
+      "bytes": 30792,
+      "sha256": "25c20c13c17643f9ed3f79c821881b8d31df89192baa48a53aba89e33b92c014"
+    },
+    {
+      "path": "examples/test-prompts.md",
+      "bytes": 3109,
+      "sha256": "67b458fd84d3c4fcf4ad23c556547fe7158be27a6e57b58ee21f06420ab7cb4f"
+    },
+    {
+      "path": "references/fantasy-football-domain.md",
+      "bytes": 3739,
+      "sha256": "1bbe09020090a65df61c6b89210517baf5f3038611a04c0852dcb347095b7edc"
+    },
+    {
+      "path": "references/intake-playbook.md",
+      "bytes": 4841,
+      "sha256": "f4675ad8315917f7410794c91846ffa92f32b8b808bca72a44f2de7fe0069cb3"
+    },
+    {
+      "path": "references/output-contract.md",
+      "bytes": 2983,
+      "sha256": "acab633ef4abd90bad5eedec433c4d8f37190d4ac9c827548f2b266d49b9204c"
+    },
+    {
+      "path": "references/research-policy.md",
+      "bytes": 3467,
+      "sha256": "6e004d6f3f22ccf1071d5cc5bc1251b6fbeb23464dd1e54c675a71f12f96f159"
+    },
+    {
+      "path": "references/tier-logic.md",
+      "bytes": 2559,
+      "sha256": "7e62ae2c81f8727418cec5ba2168932e3148e8d10e35522382349c491555c134"
+    },
+    {
+      "path": "references/update-versioning.md",
+      "bytes": 2284,
+      "sha256": "6133665947398f89f4ddbc82bd5af9aedb90c9a9d6347c0676cdeb602be06656"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 18,
+      "sha256": "8dd39dc391b6f7077c2f2e89d6ec29cb4bcf7d62b64a467255b0e8ed3811f998"
+    },
+    {
+      "path": "schemas/cheat-sheet.schema.json",
+      "bytes": 9812,
+      "sha256": "abcdc6bea15af3617cf3ea5418151894fef0fda1b186845ee02bd0e2967fe345"
+    },
+    {
+      "path": "scripts/bump_version.py",
+      "bytes": 2353,
+      "sha256": "850aff9705f11ea7d6c4ed4b5e237f07f260cabcc31145577ed6b684b6fae987"
+    },
+    {
+      "path": "scripts/preview_pdf.sh",
+      "bytes": 474,
+      "sha256": "a0932485c4e38c4213b147c2bcfe9d962d9b5730da24ad42abac90d3d7ec87f6"
+    },
+    {
+      "path": "scripts/render_cheat_sheet.py",
+      "bytes": 35138,
+      "sha256": "ff43468e1a905f985e939d7e7347e373660f0cfe9d9a5d04c4efdc6a9661f968"
+    },
+    {
+      "path": "scripts/scaffold_cheat_sheet.py",
+      "bytes": 5197,
+      "sha256": "e9875a85ae7be3dba4e00ada95b46e8564c1dae83e62c8a5be65c08506883429"
+    },
+    {
+      "path": "scripts/smoke_test.sh",
+      "bytes": 745,
+      "sha256": "e80b8dc1071e174ca669a13e8a0574e874641a6e6a7ba414324c19847ac7f47d"
+    },
+    {
+      "path": "scripts/validate_cheat_sheet.py",
+      "bytes": 15857,
+      "sha256": "77d242db06b5eb43a7360ee204cbd88c3a7543d66c28b30be8e2cb7d72ca63b0"
+    }
+  ]
+}

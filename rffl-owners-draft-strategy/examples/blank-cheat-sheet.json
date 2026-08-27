@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "schema_version": "1.0.0",
+    "title": "RFFL Draft Cheat Sheet",
+    "season": 2026,
+    "version": "0.1.0",
+    "status": "draft",
+    "mode": "consensus",
+    "created_at": "2026-08-26T22:36:59+00:00",
+    "updated_at": "2026-08-26T22:36:59+00:00",
+    "research_cutoff": null,
+    "parent_version": null,
+    "assumptions": []
+  },
+  "team": {
+    "name": "",
+    "abbr": "",
+    "owner_names": []
+  },
+  "league": {
+    "name": "RFFL",
+    "format": "redraft",
+    "teams": 12,
+    "scoring": {
+      "preset": "half_ppr",
+      "reception_points": 0.5,
+      "te_reception_points": 0.5,
+      "passing_td_points": 4,
+      "interception_points": -2,
+      "points_per_first_down": 0,
+      "bonuses": [],
+      "notes": []
+    },
+    "draft": {
+      "type": "snake",
+      "rounds": 16,
+      "slot": null,
+      "budget": null,
+      "minimum_bid": null,
+      "platform": null,
+      "date": null,
+      "time_zone": null
+    },
+    "roster": [
+      {
+        "slot": "QB",
+        "count": 1,
+        "eligible_positions": [
+          "QB"
+        ]
+      },
+      {
+        "slot": "RB",
+        "count": 2,
+        "eligible_positions": [
+          "RB"
+        ]
+      },
+      {
+        "slot": "WR",
+        "count": 2,
+        "eligible_positions": [
+          "WR"
+        ]
+      },
+      {
+        "slot": "TE",
+        "count": 1,
+        "eligible_positions": [
+          "TE"
+        ]
+      },
+      {
+        "slot": "FLEX",
+        "count": 1,
+        "eligible_positions": [
+          "RB",
+          "WR",
+          "TE"
+        ]
+      },
+      {
+        "slot": "DST",
+        "count": 1,
+        "eligible_positions": [
+          "DST"
+        ]
+      },
+      {
+        "slot": "K",
+        "count": 1,
+        "eligible_positions": [
+          "K"
+        ]
+      },
+      {
+        "slot": "BENCH",
+        "count": 7,
+        "eligible_positions": [
+          "QB",
+          "RB",
+          "WR",
+          "TE",
+          "DST",
+          "K"
+        ]
+      }
+    ],
+    "keepers": [],
+    "traded_picks": [],
+    "position_limits": {}
+  },
+  "display": {
+    "include_overall_board": true,
+    "include_strategy_page": true,
+    "include_unavailable_on_board": false,
+    "position_order": [
+      "WR",
+      "RB",
+      "QB",
+      "TE",
+      "DST",
+      "K",
+      "DL",
+      "LB",
+      "DB"
+    ],
+    "adp_label": "ADP"
+  },
+  "players": [],
+  "tier_notes": [],
+  "strategy": {
+    "profile": {},
+    "targets": [],
+    "values": [],
+    "avoids": [],
+    "rules": []
+  },
+  "sources": [],
+  "research_conflicts": [],
+  "history": [
+    {
+      "version": "0.1.0",
+      "created_at": "2026-08-26T22:36:59+00:00",
+      "change_type": "initial",
+      "summary": "Created blank cheat-sheet scaffold.",
+      "parent_version": null
+    }
+  ]
+}

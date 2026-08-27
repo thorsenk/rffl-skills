@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rffl.local/schemas/cheat-sheet.schema.json",
+  "title": "RFFL Owners Draft Strategy Cheat Sheet",
+  "type": "object",
+  "required": ["meta", "league", "players", "sources"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["schema_version", "season", "version", "mode", "created_at", "updated_at"],
+      "properties": {
+        "schema_version": {"type": "string"},
+        "title": {"type": "string"},
+        "season": {"type": "integer", "minimum": 2000, "maximum": 2100},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"enum": ["draft", "review", "final", "archived"]},
+        "mode": {"enum": ["consensus", "personalized"]},
+        "created_at": {"type": "string"},
+        "updated_at": {"type": "string"},
+        "research_cutoff": {"type": ["string", "null"]},
+        "parent_version": {"type": ["string", "null"]},
+        "assumptions": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "team": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "abbr": {"type": "string", "maxLength": 8},
+        "owner_names": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "league": {
+      "type": "object",
+      "required": ["name", "format", "teams", "scoring", "draft", "roster"],
+      "properties": {
+        "name": {"type": "string"},
+        "format": {"enum": ["redraft", "keeper", "dynasty_startup", "rookie_only", "best_ball"]},
+        "teams": {"type": "integer", "minimum": 2, "maximum": 32},
+        "scoring": {
+          "type": "object",
+          "required": ["preset", "reception_points"],
+          "properties": {
+            "preset": {"enum": ["non_ppr", "half_ppr", "ppr", "custom"]},
+            "reception_points": {"type": "number", "minimum": 0},
+            "te_reception_points": {"type": "number", "minimum": 0},
+            "passing_td_points": {"type": "number"},
+            "interception_points": {"type": "number"},
+            "points_per_first_down": {"type": "number"},
+            "bonuses": {"type": "array", "items": {"type": "string"}},
+            "notes": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": true
+        },
+        "draft": {
+          "type": "object",
+          "required": ["type", "rounds"],
+          "properties": {
+            "type": {"enum": ["snake", "linear", "third_round_reversal", "salary_cap"]},
+            "rounds": {"type": "integer", "minimum": 1, "maximum": 60},
+            "slot": {"type": ["integer", "null"], "minimum": 1},
+            "budget": {"type": ["number", "null"], "minimum": 1},
+            "minimum_bid": {"type": ["number", "null"], "minimum": 0},
+            "platform": {"type": ["string", "null"]},
+            "date": {"type": ["string", "null"]},
+            "time_zone": {"type": ["string", "null"]}
+          },
+          "additionalProperties": true
+        },
+        "roster": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["slot", "count"],
+            "properties": {
+              "slot": {"type": "string"},
+              "count": {"type": "integer", "minimum": 0, "maximum": 20},
+              "eligible_positions": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": true
+          }
+        },
+        "keepers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["player_id", "player_name", "owner_team"],
+            "properties": {
+              "player_id": {"type": "string"},
+              "player_name": {"type": "string"},
+              "owner_team": {"type": "string"},
+              "cost_round": {"type": ["integer", "null"]},
+              "cost_pick": {"type": ["integer", "null"]},
+              "cost_salary": {"type": ["number", "null"]},
+              "notes": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        },
+        "traded_picks": {"type": "array", "items": {"type": "object"}},
+        "position_limits": {"type": "object", "additionalProperties": {"type": "integer"}}
+      },
+      "additionalProperties": true
+    },
+    "display": {
+      "type": "object",
+      "properties": {
+        "include_overall_board": {"type": "boolean"},
+        "include_strategy_page": {"type": "boolean"},
+        "include_unavailable_on_board": {"type": "boolean"},
+        "position_order": {"type": "array", "items": {"type": "string"}},
+        "adp_label": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "players": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "positions", "primary_position", "availability"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "nfl_team": {"type": ["string", "null"]},
+          "bye": {"type": ["integer", "null"], "minimum": 1, "maximum": 18},
+          "positions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "primary_position": {"type": "string"},
+          "position_rank": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1}},
+          "overall_rank": {"type": ["integer", "null"], "minimum": 1},
+          "position_tier": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1}},
+          "overall_tier": {"type": ["integer", "null"], "minimum": 1},
+          "adp": {"$ref": "#/$defs/metric"},
+          "ecr": {"$ref": "#/$defs/metric"},
+          "projection": {"$ref": "#/$defs/metric"},
+          "auction": {
+            "type": "object",
+            "properties": {
+              "aav": {"type": ["number", "null"]},
+              "target_price": {"type": ["number", "null"]},
+              "max_bid": {"type": ["number", "null"]}
+            },
+            "additionalProperties": true
+          },
+          "availability": {"enum": ["available", "keeper", "unavailable", "injured", "suspended", "retired"]},
+          "owner_team": {"type": ["string", "null"]},
+          "tags": {"type": "array", "maxItems": 3, "items": {"type": "string"}},
+          "note": {"type": "string"},
+          "confidence": {"enum": ["high", "medium", "low"]},
+          "locked_fields": {"type": "array", "items": {"type": "string"}},
+          "source_ids": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "tier_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scope", "tier"],
+        "properties": {
+          "scope": {"type": "string"},
+          "tier": {"type": "integer", "minimum": 1},
+          "label": {"type": "string"},
+          "note": {"type": "string"},
+          "confidence": {"enum": ["high", "medium", "low"]},
+          "evidence_source_ids": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "strategy": {
+      "type": "object",
+      "properties": {
+        "profile": {"type": "object"},
+        "targets": {"type": "array", "items": {"$ref": "#/$defs/strategyItem"}},
+        "values": {"type": "array", "items": {"$ref": "#/$defs/strategyItem"}},
+        "avoids": {"type": "array", "items": {"$ref": "#/$defs/strategyItem"}},
+        "rules": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "publisher", "title", "data_type", "accessed_at"],
+        "properties": {
+          "id": {"type": "string"},
+          "publisher": {"type": "string"},
+          "title": {"type": "string"},
+          "url": {"type": ["string", "null"]},
+          "data_type": {"type": "string"},
+          "scoring": {"type": ["string", "null"]},
+          "platform": {"type": ["string", "null"]},
+          "updated_at": {"type": ["string", "null"]},
+          "accessed_at": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "research_conflicts": {"type": "array", "items": {"type": "object"}},
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["version", "created_at", "change_type", "summary"],
+        "properties": {
+          "version": {"type": "string"},
+          "created_at": {"type": "string"},
+          "change_type": {"enum": ["initial", "refresh", "strategy", "league", "schema", "variant"]},
+          "summary": {"type": "string"},
+          "parent_version": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "properties": {
+        "value": {"type": ["number", "null"]},
+        "source": {"type": ["string", "null"]},
+        "as_of": {"type": ["string", "null"]},
+        "format": {"type": ["string", "null"]},
+        "platform": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "strategyItem": {
+      "type": "object",
+      "required": ["player_id"],
+      "properties": {
+        "player_id": {"type": "string"},
+        "window": {"type": ["string", "null"]},
+        "reason": {"type": ["string", "null"]},
+        "price_cap": {"type": ["number", "null"]},
+        "confidence": {"enum": ["high", "medium", "low"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

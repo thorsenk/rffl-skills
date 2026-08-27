@@ -1,0 +1,28 @@
+{
+  "source": "Bundled fallback derived from the existing RFFL dark data-interface references. Approved repository tokens override this file.",
+  "colors": {
+    "background": "#141312",
+    "panel": "#1B1C1A",
+    "panel_alt": "#202321",
+    "ink": "#FBFAF5",
+    "soft_ink": "#E8E6DC",
+    "muted": "#98978E",
+    "accent": "#8FBCC6",
+    "accent_2": "#71889A",
+    "grid": "#343936",
+    "tier": "#2B3333",
+    "warning": "#CDAA7D",
+    "danger": "#C98686"
+  },
+  "typography": {
+    "font_regular": "Helvetica",
+    "font_bold": "Helvetica-Bold",
+    "font_wordmark": "Helvetica-BoldOblique"
+  },
+  "layout": {
+    "page_size": "US Letter landscape",
+    "style": "dense, dark, data-first",
+    "minimum_table_text_points": 5,
+    "pagination_rule": "add continuation pages instead of shrinking below the legibility floor"
+  }
+}

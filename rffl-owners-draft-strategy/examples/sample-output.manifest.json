@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-26T22:39:31+00:00",
+  "source": {
+    "path": "examples/sample-cheat-sheet.json",
+    "sha256": "d849cec55104a63ce64de0077c58537bb4502015893f643ea079f293baa7e87f"
+  },
+  "pdf": {
+    "path": "examples/sample-output.pdf",
+    "sha256": "25c20c13c17643f9ed3f79c821881b8d31df89192baa48a53aba89e33b92c014",
+    "pages": 4
+  },
+  "version": "0.1.0",
+  "season": 2026,
+  "scoring": "HALF-PPR",
+  "team": "General Demo Team",
+  "research_cutoff": "2026-08-26T18:00:00-05:00",
+  "players_by_position": {
+    "DST": 20,
+    "K": 20,
+    "QB": 35,
+    "RB": 60,
+    "TE": 35,
+    "WR": 60
+  },
+  "overall_player_count": 180,
+  "tier_counts": {
+    "DST": 3,
+    "K": 3,
+    "OVERALL": 7,
+    "QB": 5,
+    "RB": 5,
+    "TE": 5,
+    "WR": 5
+  },
+  "validation": {
+    "errors": [],
+    "warnings": []
+  },
+  "token_file": "assets/rffl-brand-tokens.json",
+  "logo_file": null
+}
