@@ -4,15 +4,17 @@ Use adaptive triage. The Owner should experience a useful conversation, not an i
 
 ## Core rule
 
-Ask one focused question. Wait. Use the answer before asking the next question.
+Ask one focused question. Wait. Use the answer before asking the next question. A focused question covers one decision domain and has one answer target; do not hide several asks inside one sentence.
 
 Do not send a numbered question block. Do not make the Owner repeat facts that appear in the request, a source JSON, league settings, a linked league, or a supplied screenshot.
+
+The first intake reply contains only the question. Never announce that no prior sheet, configuration, or project data was found. Do not preface the question with a project-search report, confirmed-settings recap, task-mode explanation, budget warning, or process narration.
 
 ## Start with evidence
 
 For an existing sheet, read the JSON before asking anything.
 
-For a new sheet, first look for league settings in the request or available project context. If none are available, open with this one question:
+For a new sheet, use league settings already present in the request or in material the user explicitly references. Unless the request names a file or prior sheet, do not use Glob, Grep, Read, or repository inspection to look for one. If no settings are supplied, open with this one question:
 
 > Can you send the league settings page or a screenshot? If not, what scoring does the league use: non-PPR, half-PPR, PPR, or custom?
 
@@ -35,7 +37,7 @@ settings source
                   └─ personalized preferences, if requested
 ```
 
-Rounds, bench size, file name, page count, and visual options are output details. Collect them later unless they affect the requested strategy.
+Rounds, bench size, Team/Owner name, file name, page count, and visual options are output details. Collect them later unless they materially affect the requested strategy. Use `general` as the working Team label until naming is actually required.
 
 ## High-signal questions
 
@@ -44,7 +46,7 @@ Use the smallest question that resolves the current uncertainty.
 | Unknown | Good next question |
 |---|---|
 | Scoring | “What scoring does the league use? Include TE premium or unusual QB scoring if it has either.” |
-| Starting lineup | “What starts each week, especially QB, Superflex, and FLEX?” |
+| Starting lineup | “What is the starting lineup?” |
 | Team count | “How many Teams are drafting?” |
 | Draft mechanics | “Is this snake, third-round reversal, linear, or salary cap?” |
 | Availability | “Are there keepers, traded picks, or players already unavailable?” |
@@ -53,6 +55,8 @@ Use the smallest question that resolves the current uncertainty.
 | Personalization | “Do you want a value-first board, a safer floor, or more upside?” |
 
 If the user does not care about personal strategy, record `value-based` and stop asking preference questions.
+
+Do not append a second domain to these questions. For example, after asking about the starting lineup, wait before asking about bench size; after asking about keepers, wait before asking for draft slot.
 
 ## Scoring branches
 

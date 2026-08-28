@@ -1,14 +1,14 @@
 {
   "name": "rffl-owners-draft-strategy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "created_at": "2026-08-26T18:00:00-05:00",
   "purpose": "Claude Code skill bundle for researching, creating, updating, versioning, and rendering RFFL Owner draft cheat sheets.",
   "entrypoint": "SKILL.md",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "bytes": 835,
-      "sha256": "df392400eabf38a624bcb95dfe297fcebc70968d6d54b2208f443c8b6d033174"
+      "bytes": 1196,
+      "sha256": "27624aaad635c8c1b8b393b746a9c5f8c2a5531f98bfdfdf2729c38f1d48bf1c"
     },
     {
       "path": "CLAUDE-CODE-HANDOFF.md",
@@ -22,8 +22,8 @@
     },
     {
       "path": "SKILL.md",
-      "bytes": 9743,
-      "sha256": "d9cb169cf01eef323fb76995a1e57c701c999aceff3035f33b933fe2fe4af71c"
+      "bytes": 10657,
+      "sha256": "eebb59fef9f1c7edc8d7c2939a622c4c41ab30f7722f38a97e6197d426c162bb"
     },
     {
       "path": "assets/RFFL-general-tiered-cheat-sheet-template-v2.pdf",
@@ -57,8 +57,8 @@
     },
     {
       "path": "examples/test-prompts.md",
-      "bytes": 3639,
-      "sha256": "95916667ffc01958977a97b8da3b097f7aba4dc540904d250031590129eff6ad"
+      "bytes": 4971,
+      "sha256": "9333ffd30b1a7b24f7dd37509b29045e70bd6ca365fc0856ea769bec591b8427"
     },
     {
       "path": "references/fantasy-football-domain.md",
@@ -67,8 +67,8 @@
     },
     {
       "path": "references/intake-playbook.md",
-      "bytes": 5318,
-      "sha256": "e31057c2d62479b30947255a274f95864a465ebffcb2d56f3b862812924c7e0c"
+      "bytes": 6136,
+      "sha256": "1c45f28ebd3fb10f824e76c92061fbc71f0ccc6992174619600ee91de55d1e31"
     },
     {
       "path": "references/output-contract.md",

@@ -28,6 +28,20 @@ Expected behavior:
 - does not ask what year this is for or repeat that this is a new sheet
 - asks one high-signal question, normally for league settings or scoring
 - waits for the answer before asking about lineup, keepers, pick slot, or preferences
+- does not search the project merely to announce that no prior sheet was found
+
+## 1b. Supplied settings fast path
+
+```text
+RFFL is a 12-team half-PPR, one-QB snake league. We start 1 QB, 2 RB, 2 WR, 1 TE, and 1 FLEX. Build me a personalized cheat sheet for Saturday.
+```
+
+Expected behavior:
+
+- uses every supplied setting without restating or re-asking it
+- asks about one missing ranking domain only, such as availability or draft slot
+- does not ask Team/Owner identity during ranking intake
+- does not combine identity, draft slot, keepers, or preferences into one question
 
 ## 2. Keeper branch
 
@@ -138,3 +152,27 @@ Expected behavior:
 - skips preference grilling
 - still asks material league questions
 - omits the strategy page when empty
+
+## 11. Starting-lineup focus
+
+```text
+Do not personalize this. Build a clean consensus RFFL tier sheet for a 12-team non-PPR, one-QB snake league with no keepers. I draft from pick 8.
+```
+
+Expected behavior:
+
+- asks for the starting lineup as one decision domain
+- does not add bench size, naming, or presentation questions to the same message
+- does not ask personal-strategy questions
+- asks the question directly without claiming that no project configuration was found or recapping confirmed settings
+
+## 12. Historical ambiguity
+
+```text
+Build an RFFL cheat sheet for one of our old seasons.
+```
+
+Expected behavior:
+
+- asks which season because the request is genuinely historical
+- asks only that question before moving to scoring or availability

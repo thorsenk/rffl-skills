@@ -13,7 +13,7 @@ Create and maintain a tier-based fantasy football draft cheat sheet for one RFFL
 
 ## Non-negotiable rules
 
-1. Inspect before assuming. Read an existing source JSON, league configuration, keeper list, and approved RFFL brand assets when available.
+1. Inspect supplied evidence before assuming. Read an existing source JSON, league configuration, keeper list, and approved RFFL brand assets when the user provides or points to them. In `new` mode, never use project search to look for prior sheets, JSON, or league configuration unless the request names or references one.
 2. Ask only questions that materially change rankings, tiers, availability, or output.
 3. Do not rank from memory when current-season research is required. Use current, scoring-specific sources and record dates.
 4. Keep ADP, ECR, projections, and user preference separate:
@@ -47,14 +47,15 @@ Before the interview, read [references/intake-playbook.md](references/intake-pla
 
 The intake is a short conversation, not a form.
 
-1. Read the request, any existing JSON, league settings, screenshots, and repository context first.
-2. Ask **one focused question per message**, then wait for the answer. Never send a questionnaire, numbered question block, or checklist to the Owner.
-3. Start with the highest-impact unknown. Usually this is the league settings source or scoring. A settings link, export, or screenshot is better than re-asking facts it contains.
-4. Use known context. Do not ask for task mode, season, draft date, team count, rounds, roster slots, or keepers when the request or supplied material already establishes them.
-5. Treat the current season and current research date as defaults. Ask about season or date only when the request is ambiguous, historical, or tied to a stated research cutoff.
-6. Gather ranking inputs before presentation inputs. Scoring, starting lineup, team count, draft mechanics, availability, and pick/budget can change the board. File name, page count, and total board rounds can wait.
-7. Ask personal-strategy questions only for a personalized board. Use one high-signal preference at a time. Value-based drafting is a complete answer.
-8. When enough facts are known, state the small set of assumptions and begin research. Ask the next question only when its answer could materially change rankings, tiers, or player availability.
+1. Read the request and any JSON, settings, screenshot, or file the user explicitly supplies or references. For a new-sheet request with no referenced files, treat the request as the complete starting context. Do not use Glob, Grep, Read, or repository inspection to look for additional league data before asking the first question.
+2. Ask **one focused question per message**, then wait for the answer. One question means one decision domain and one answer target. Do not combine Team identity, draft slot, keepers, lineup, bench size, or preferences in the same question.
+3. The first intake reply must contain only the question. Do not narrate searches, say that no existing file or configuration was found, restate confirmed facts, explain task mode, mention budget, or describe process before the question.
+4. Start with the highest-impact unknown. Usually this is the league settings source or scoring. A settings link, export, or screenshot is better than re-asking facts it contains.
+5. Use known context. Do not ask for task mode, season, draft date, team count, rounds, roster slots, or keepers when the request or supplied material already establishes them.
+6. Treat the current season and current research date as defaults. Ask about season or date only when the request is ambiguous, historical, or tied to a stated research cutoff.
+7. Gather ranking inputs before presentation inputs. Scoring, starting lineup, team count, draft mechanics, availability, and pick/budget can change the board. Team/Owner name, file name, bench size, page count, and total board rounds can wait.
+8. Ask personal-strategy questions only for a personalized board. Use one high-signal preference at a time. Value-based drafting is a complete answer.
+9. When enough facts are known, state the small set of assumptions and begin research. Ask the next question only when its answer could materially change rankings, tiers, or player availability.
 
 ### Material facts
 
@@ -68,6 +69,8 @@ Collect or verify only the facts that are still unknown and relevant to the requ
 - platform ADP when it will be used
 
 For a personalized board, then ask about draft style, risk, or target/fade preferences only as needed. Do not force a declared strategy when the user prefers value-based drafting.
+
+Team or Owner identity is not a ranking input. Use a `general` working label and ask about naming only when saving the output requires it.
 
 ## Research workflow
 

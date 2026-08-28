@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 - 2026-08-28
+
+- Defined one question as one decision domain with one answer target.
+- Prevented project scans for plain new-sheet requests with no referenced files.
+- Deferred Team identity, bench size, and other output details until they are needed.
+- Added regression coverage for supplied settings, focused lineup intake, and historical ambiguity.
+
 ## 0.1.1 - 2026-08-28
 
 - Replaced form-style intake with a one-question conversation.
