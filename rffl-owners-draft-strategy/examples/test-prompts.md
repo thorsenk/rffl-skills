@@ -11,9 +11,23 @@ Build a consensus cheat sheet for a 12-team half-PPR snake draft.
 
 Expected behavior:
 
-- asks for draft date, slot, rounds, roster, platform, and keepers
+- asks one question only, not a questionnaire
+- does not ask season, draft date, or task mode
+- asks for league settings or the next material fact, such as starting lineup
 - does not ask personal-strategy questions unless the user chooses personalization
 - researches half-PPR data rather than PPR or non-PPR data
+
+## 1a. Draft-week opening
+
+```text
+My RFFL draft is Saturday. Build me a personalized cheat sheet.
+```
+
+Expected behavior:
+
+- does not ask what year this is for or repeat that this is a new sheet
+- asks one high-signal question, normally for league settings or scoring
+- waits for the answer before asking about lineup, keepers, pick slot, or preferences
 
 ## 2. Keeper branch
 
@@ -24,7 +38,7 @@ Build my keeper cheat sheet. We have 16 rounds and two keepers, but I still need
 Expected behavior:
 
 - distinguishes board rounds from live selections
-- asks for each keeper and cost
+- asks for the keeper list or the next missing keeper fact, one at a time
 - removes unavailable keepers from live targets
 
 ## 3. Scoring correction
@@ -46,7 +60,7 @@ Create a 14-team PPR Superflex board with six-point passing touchdowns.
 
 Expected behavior:
 
-- asks QB roster-limit and starting-slot questions
+- asks one missing Superflex fact at a time
 - does not reuse one-QB overall ranks
 - creates QB tiers that reflect scarcity
 
@@ -59,7 +73,7 @@ Make an auction version of my current sheet with a $200 budget.
 Expected behavior:
 
 - treats the canonical term as salary cap
-- asks for minimum bid and keeper salaries
+- asks for total budget, then the next missing salary-cap fact one at a time
 - renders AAV, target price, and hard maximum price
 
 ## 6. Data refresh with locks

@@ -1,43 +1,68 @@
 # Intake Playbook
 
-Use adaptive triage. Do not ask every question blindly. Read existing files first and skip anything already known.
+Use adaptive triage. The Owner should experience a useful conversation, not an intake form.
 
-## Opening
+## Core rule
 
-When the task mode is unclear, ask:
+Ask one focused question. Wait. Use the answer before asking the next question.
 
-> Are we creating a new cheat sheet, updating an existing one, refreshing current data, or saving a separate variant?
+Do not send a numbered question block. Do not make the Owner repeat facts that appear in the request, a source JSON, league settings, a linked league, or a supplied screenshot.
 
-When the mode is clear, begin with the essential intake.
+## Start with evidence
 
-## Essential intake
+For an existing sheet, read the JSON before asking anything.
 
-Ask these in one compact numbered block unless the user prefers one question at a time.
+For a new sheet, first look for league settings in the request or available project context. If none are available, open with this one question:
 
-1. **Season and draft date:** What season is this for, and when is the draft?
-2. **League format:** Redraft, keeper, dynasty startup, rookie-only, or best ball?
-3. **Scoring:** Non-PPR, half-PPR, PPR, or custom? Ask for TE premium, points per first down, passing-TD value, yardage bonuses, and return-yard scoring when relevant.
-4. **League size:** How many Teams?
-5. **Draft format:** Snake, linear, third-round reversal, or salary cap?
-6. **Draft position:** What slot, or what salary-cap budget?
-7. **Roster and rounds:** Exact starting slots, bench/IR/taxi slots, and total board rounds.
-8. **Keepers and unavailable players:** Who is kept, at what cost, and which players are already unavailable?
-9. **Draft platform:** Which platform will run the draft? Use its ADP when available.
-10. **Output goal:** Pure consensus, personalized strategy, or both?
+> Can you send the league settings page or a screenshot? If not, what scoring does the league use: non-PPR, half-PPR, PPR, or custom?
 
-### Important distinction
+This gives the Owner a fast path. Extract all readable facts from the source before asking about gaps.
 
-`Rounds` means the number of board rounds. `Live selections` may be lower when keepers prefill cells. Example: a 16-round board with two prefilled keepers has 14 live selections for that Team.
+Do not ask for the year, the draft date, or task mode when the request makes them clear. Use the current season and the research access date unless the user asks for another season or a dated historical board.
+
+## Question order
+
+Follow this order only for facts that remain unknown. Ask one at a time.
+
+```text
+settings source
+└─ scoring
+   └─ starting lineup
+      └─ team count and draft mechanics
+         └─ keepers and unavailable players
+            └─ draft slot or salary-cap budget
+               └─ platform ADP
+                  └─ personalized preferences, if requested
+```
+
+Rounds, bench size, file name, page count, and visual options are output details. Collect them later unless they affect the requested strategy.
+
+## High-signal questions
+
+Use the smallest question that resolves the current uncertainty.
+
+| Unknown | Good next question |
+|---|---|
+| Scoring | “What scoring does the league use? Include TE premium or unusual QB scoring if it has either.” |
+| Starting lineup | “What starts each week, especially QB, Superflex, and FLEX?” |
+| Team count | “How many Teams are drafting?” |
+| Draft mechanics | “Is this snake, third-round reversal, linear, or salary cap?” |
+| Availability | “Are there keepers, traded picks, or players already unavailable?” |
+| Pick position | “What pick do you have, after any traded-pick changes?” |
+| Platform | “Which platform runs the draft? I’ll use its ADP if it is available.” |
+| Personalization | “Do you want a value-first board, a safer floor, or more upside?” |
+
+If the user does not care about personal strategy, record `value-based` and stop asking preference questions.
 
 ## Scoring branches
 
 ### Non-PPR / standard
 
-Confirm that receptions score zero. Ask whether long-touchdown or yardage bonuses materially change deep-threat and touchdown-dependent players.
+Treat confirmed non-PPR as zero reception points. Ask about bonuses only when the user names custom scoring or the settings source shows them.
 
 ### Half-PPR or PPR
 
-Confirm reception points exactly. Do not assume every platform uses the same defaults.
+Treat confirmed half-PPR as 0.5 points per reception and PPR as 1.0. Ask only when the user names a custom reception value or exception.
 
 ### TE premium
 
@@ -45,24 +70,23 @@ Ask for exact TE reception points and any TE first-down bonus. TE premium can ma
 
 ### Superflex or 2QB
 
-Ask:
+Ask only missing facts, one per message:
 
-- Is a second QB allowed or required?
-- How many QBs may be rostered?
-- How many Teams are in the league?
-- Are passing touchdowns worth four or six points?
+1. Is a second QB allowed or required?
+2. Are passing touchdowns worth four or six points?
+3. Ask about QB roster limits only when the league has a nonstandard limit.
 
 Do not reuse one-QB overall ranks.
 
 ### IDP
 
-Ask for enabled slots and scoring for tackles, assists, sacks, interceptions, passes defended, forced fumbles, fumble recoveries, and return touchdowns. Add DL, LB, DB, and IDP/FLEX boards as needed.
+Request the IDP settings source. If it is unavailable, ask for enabled slots first, then the missing scoring facts one at a time. Add DL, LB, DB, and IDP/FLEX boards as needed.
 
 ## Draft-format branches
 
 ### Snake or linear
 
-Ask for draft slot and whether picks were traded.
+Ask for draft slot. Ask about traded picks only when the league permits them or the Owner indicates a trade.
 
 ### Third-round reversal
 
@@ -70,68 +94,26 @@ Confirm the reversal rule and pick order. Do not treat it as an ordinary snake d
 
 ### Salary cap
 
-Ask for:
-
-- total budget
-- minimum bid
-- keeper costs
-- nomination order if known
-- desired build: balanced, stars-and-scrubs, or value-only
-- whether the user wants AAV, target price, and hard maximum price
+Ask for total budget first. Then ask about minimum bid and keeper costs only if unknown. Ask about preferred build only for a personalized board.
 
 Replace round-window logic with price bands and maximum bids.
 
-## Keeper branches
+## Keeper branch
 
-Ask for each keeper:
-
-- player
-- Team that owns the keeper
-- keeper cost: round, pick, or salary
-- whether the player is completely unavailable to the user
-- whether the cost changes due to trades or prior-year rules
+Ask for the authoritative keeper list or a screenshot first. If that is not available, ask for the next missing keeper fact one at a time: player, owning Team, and keeper cost. Do not ask whether a listed keeper is unavailable. A confirmed keeper is unavailable by default.
 
 Never infer keeper truth from generic platform data when an authoritative league list exists.
 
-## Personal strategy branches
+## Personal strategy branch
 
-Ask only when the user wants personalization.
-
-1. **Risk:** Conservative, balanced, or ceiling-first?
-2. **Injuries:** How much injury or role uncertainty is acceptable?
-3. **Early build:** Value-only, RB-heavy, WR-heavy, anchor RB, hero RB, zero RB, elite QB, elite TE, or no fixed structure?
-4. **QB timing:** Pay for an elite difference-maker, wait for value, or stream?
-5. **TE timing:** Premium TE at value, middle-tier target, or late-round approach?
-6. **Rookies:** Prefer, neutral, or discount?
-7. **Stacking:** Actively seek QB-pass-catcher stacks, use only as a tiebreaker, or ignore?
-8. **Bye weeks:** Ignore, avoid concentration, or apply only as a late tiebreaker?
-9. **Favorites and fades:** Which players or NFL Teams should be targeted, avoided, or treated neutrally?
-10. **Evidence:** Should prior draft behavior or league history influence the board?
+Ask only when the user requests personalization. Begin with draft style: value-first, safer floor, or more upside. Then ask a follow-up only when it changes a decision, such as an explicitly desired early build, a target/fade list, or strong QB/TE timing preference.
 
 Do not turn a weak preference into a hard rule. Label soft preferences as tiebreakers.
 
 ## Update intake
 
-When updating an existing sheet, ask only:
+Read the existing sheet. Then ask one question: “What do you want to change?” Read locks from the source. Ask only if a lock, variant choice, or research cutoff is absent and changes the requested work.
 
-1. What changed: data, league settings, strategy, draft slot, keepers, or output layout?
-2. Which fields are locked and must remain untouched?
-3. Should this replace the current working version or become a separate variant?
-4. What research cutoff is required?
+## Start research
 
-## Confirmation gate
-
-Before research, show:
-
-```text
-Confirmed
-- ...
-
-Assumed
-- ...
-
-Open
-- ...
-```
-
-Proceed when all open items that materially affect ranks, tiers, or availability are resolved. When the user accepts assumptions, store them in `meta.assumptions`.
+When the material facts are known, state the working assumptions in one short message and begin research. Do not ask for a ceremonial confirmation. Ask one more question only when an unresolved fact would change rankings, tiers, or availability. Store material assumptions in `meta.assumptions`.

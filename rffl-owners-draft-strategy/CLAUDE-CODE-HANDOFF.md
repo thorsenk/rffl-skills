@@ -24,7 +24,8 @@ Then provide a real league profile. The skill should interview the user, create 
 ## Test success criteria
 
 - The interview distinguishes non-PPR, half-PPR, PPR, and custom scoring.
-- It asks for Team count, rounds, roster slots, keepers, draft type, slot/budget, and platform.
+- It asks one high-signal question at a time and uses league settings before asking for facts.
+- It does not ask for season, draft date, task mode, or any fact already established by context.
 - It asks detailed follow-ups only when the answers require them.
 - The player pool expands through continuation pages.
 - Tiers are uneven and based on value cliffs.

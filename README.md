@@ -10,7 +10,7 @@ Builds, updates, versions, and renders RFFL-branded fantasy football draft cheat
 
 - [Skill instructions](rffl-owners-draft-strategy/SKILL.md)
 - [Installation and usage](rffl-owners-draft-strategy/README.md)
-- Current bundle version: `0.1.0`
+- Current bundle version: `0.1.1`
 
 ## Install
 

@@ -30,7 +30,7 @@ Create and maintain a tier-based fantasy football draft cheat sheet for one RFFL
 
 ## Determine the task mode
 
-Infer the mode from the request. Ask one orientation question only when the mode is unclear:
+Infer the mode from the request. Do not ask the user to label a request that already says what it wants. Ask one orientation question only when the requested work is genuinely ambiguous:
 
 - `new`: create a new cheat sheet from league settings and research.
 - `update`: change strategy, settings, tiers, players, or notes in an existing sheet.
@@ -43,37 +43,31 @@ If an existing JSON path is supplied, read it before asking questions. If only a
 
 Before the interview, read [references/intake-playbook.md](references/intake-playbook.md).
 
-### Phase 1: Essential league facts
+### Conversation contract
 
-Collect or verify:
+The intake is a short conversation, not a form.
 
-1. Season and draft date.
-2. New sheet, update, refresh, or variant.
-3. League format: redraft, keeper, dynasty startup, rookie-only, or best ball.
-4. Scoring: non-PPR, half-PPR, PPR, TE premium, points-per-first-down, bonuses, and other custom rules.
-5. Team count.
-6. Draft type: snake, linear, third-round reversal, or salary cap.
-7. Draft slot or budget.
-8. Number of rounds and exact roster slots.
-9. Keepers, keeper costs, traded picks, and other unavailable players.
-10. Draft platform or desired ADP source.
+1. Read the request, any existing JSON, league settings, screenshots, and repository context first.
+2. Ask **one focused question per message**, then wait for the answer. Never send a questionnaire, numbered question block, or checklist to the Owner.
+3. Start with the highest-impact unknown. Usually this is the league settings source or scoring. A settings link, export, or screenshot is better than re-asking facts it contains.
+4. Use known context. Do not ask for task mode, season, draft date, team count, rounds, roster slots, or keepers when the request or supplied material already establishes them.
+5. Treat the current season and current research date as defaults. Ask about season or date only when the request is ambiguous, historical, or tied to a stated research cutoff.
+6. Gather ranking inputs before presentation inputs. Scoring, starting lineup, team count, draft mechanics, availability, and pick/budget can change the board. File name, page count, and total board rounds can wait.
+7. Ask personal-strategy questions only for a personalized board. Use one high-signal preference at a time. Value-based drafting is a complete answer.
+8. When enough facts are known, state the small set of assumptions and begin research. Ask the next question only when its answer could materially change rankings, tiers, or player availability.
 
-Do not begin rankings while a material blocker remains unresolved. Present a compact summary with `Confirmed`, `Assumed`, and `Open` before research.
+### Material facts
 
-### Phase 2: Personal strategy
+Collect or verify only the facts that are still unknown and relevant to the requested board:
 
-Skip this phase for a pure consensus sheet. For a personalized sheet, ask only the branches that matter:
+- scoring and any material scoring exceptions
+- starting lineup, especially QB, Superflex, and FLEX slots
+- team count and draft mechanics
+- keeper, traded-pick, and unavailable-player information
+- draft slot or salary-cap budget
+- platform ADP when it will be used
 
-- risk tolerance and injury tolerance
-- preferred early-round roster build
-- QB and TE timing
-- appetite for rookies and volatile players
-- stacking preference
-- favorite targets, fades, and excluded players
-- bye-week preference
-- prior strategy or draft-history evidence
-
-Do not force a declared strategy when the user prefers value-based drafting.
+For a personalized board, then ask about draft style, risk, or target/fade preferences only as needed. Do not force a declared strategy when the user prefers value-based drafting.
 
 ## Research workflow
 
